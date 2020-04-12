@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.databindingexample.model.Product" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A4A4A4"
+        tools:context=".ui.MainActivity">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="124dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="182dp"
+            android:text="@{product.title}"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textAllCaps="true" />
+
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="315dp"
+            android:layout_height="215dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="48dp"
+            app:imageURL="@{product.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/textViewDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@{product.description}"
+            android:textColor="#1B1B1B"
+            android:textSize="18dp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProduct" />
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="90dp"
+            android:text="@{String.valueOf(product.price)}"
+            android:textColor="#212121"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDesc" />
+
+        <RatingBar
+            android:id="@+id/ratingBarProduct"
+            android:layout_width="233dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="30dp"
+            android:numStars="5"
+            android:rating="@{product.rating}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
