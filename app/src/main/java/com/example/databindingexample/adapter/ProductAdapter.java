@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.databindingexample.R;
 import com.example.databindingexample.databinding.ItemProductBinding;
 import com.example.databindingexample.model.Product;
-import com.example.databindingexample.model.ProductsList;
 import com.example.databindingexample.ui.MainActivity;
 
 import java.io.Serializable;
@@ -21,9 +20,9 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    private ProductsList productArrayList;
+    private ArrayList<Product> productArrayList;
 
-    public ProductAdapter(ProductsList productArrayList) {
+    public ProductAdapter(ArrayList<Product> productArrayList) {
         this.productArrayList = productArrayList;
     }
 
@@ -42,14 +41,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
 
-        Product product = productArrayList.PRODUCT_MAP.get(position);
+        Product product = this.productArrayList.get(position);
         holder.itemProductBinding.setProduct(product);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Product pos = productArrayList.PRODUCT_MAP.get(position);
+                Product pos = productArrayList.get(position);
                 Bundle myBundle = new Bundle();
                 myBundle.putSerializable("productDetail", (Serializable) pos);
 
@@ -64,7 +63,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public int getItemCount() {
-        return this.productArrayList.PRODUCT_MAP.size();
+        return this.productArrayList.size();
     }
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
