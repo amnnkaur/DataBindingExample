@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class ProductListActivity extends AppCompatActivity {
 
     ActivityProductListBinding pBinding;
-    private RecyclerView rvProductList;
     private ProductAdapter productAdapter;
 
     ProductsList productsList = new ProductsList();

@@ -36,7 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 LayoutInflater.from(parent.getContext()), R.layout.item_product,parent,false);
 
         ProductViewHolder productViewHolder = new ProductViewHolder(itemProductBinding);
-        return null;
+        return productViewHolder;
     }
 
     @Override
@@ -56,8 +56,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 Intent mIntent = new Intent(holder.itemView.getContext(), MainActivity.class);
                 mIntent.putExtra("object", myBundle);
                 holder.itemView.getContext().startActivity(mIntent);
-
-
             }
         });
 
@@ -75,7 +73,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         public ProductViewHolder(@NonNull ItemProductBinding itemView) {
             super(itemView.getRoot());
-            itemProductBinding = itemView;
+
+            this.itemProductBinding = itemView;
         }
     }
 }
