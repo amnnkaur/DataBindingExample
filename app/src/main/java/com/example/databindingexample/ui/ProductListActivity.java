@@ -15,14 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.databindingexample.model.ProductsList;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class ProductListActivity extends AppCompatActivity {
 
     ActivityProductListBinding pBinding;
     private ProductAdapter productAdapter;
-
-    ProductsList productsList = new ProductsList();
+    private Product mProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,13 @@ public class ProductListActivity extends AppCompatActivity {
         pBinding = DataBindingUtil.setContentView(this, R.layout.activity_product_list);
         pBinding.rvProducts.setLayoutManager(new LinearLayoutManager(this));
 
+        ProductsList productsList = new ProductsList();
+        mProduct = productsList.PRODUCTS[0];
+
         productAdapter = new ProductAdapter(productsList);
         pBinding.rvProducts.setAdapter(productAdapter);
+
+
 
     }
 
