@@ -35,7 +35,7 @@
             android:layout_marginTop="60dp"
             android:text="@{Product.title}"
             android:textColor="#00251A"
-            android:textSize="25dp"
+            android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
